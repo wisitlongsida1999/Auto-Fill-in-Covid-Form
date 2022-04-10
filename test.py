@@ -1,0 +1,4 @@
+en = ''
+
+
+print(bool(en))
