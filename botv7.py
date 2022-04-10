@@ -24,9 +24,8 @@ while (True):
 
 
     if((now.strftime("%A") == "Saturday" )or (now.strftime("%A") == "Sunday") or now.strftime("%D") in list_holiday):
-        # if ((now.hour == 0 and now.minute == r) or (now.hour == 10 and now.minute == r)):
-
-        if 1+1==2:
+        
+        if ((now.hour == 0 and now.minute == r) or (now.hour == 10 and now.minute == r)):
 
             en = '512247'
 
