@@ -6,7 +6,7 @@ import random
 import traceback
 import chromedriver_autoinstaller
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.chrome.service import Service
 
 
 url = 'https://notify-api.line.me/api/notify'
@@ -20,7 +20,7 @@ r = 8
 
 while (True):
 
-    chromedriver_autoinstaller.install() 
+    print(chromedriver_autoinstaller.install())
 
     en = ''
 
@@ -43,7 +43,7 @@ while (True):
 
             try:
                 
-                wd = webdriver.Chrome()
+                wd = webdriver.Chrome(service=Service(r"C:\Users\Administrator\AppData\Local\Programs\Python\Python310\Lib\site-packages\chromedriver_autoinstaller\105\chromedriver.exe"))
                 wd.get("https://www.fabrinet.co.th/custappl/covid/")
                 wd.find_element(By.XPATH,'//input[@type="text"]').send_keys(en)
                 time.sleep(1)
@@ -85,7 +85,7 @@ while (True):
         if en :
 
             try:
-                wd = webdriver.Chrome( "C://Users//Administrator//Desktop//chromedriver.exe")
+                wd = webdriver.Chrome(service=Service(r"C:\Users\Administrator\AppData\Local\Programs\Python\Python310\Lib\site-packages\chromedriver_autoinstaller\105\chromedriver.exe"))
                 wd.get("https://www.fabrinet.co.th/custappl/covid/")
                 wd.find_element(By.XPATH,'//input[@type="text"]').send_keys(en)
                 time.sleep(1)
