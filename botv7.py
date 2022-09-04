@@ -4,6 +4,9 @@ import requests
 import datetime
 import random
 import traceback
+import chromedriver_autoinstaller
+from selenium.webdriver.common.by import By
+
 
 
 url = 'https://notify-api.line.me/api/notify'
@@ -17,6 +20,8 @@ r = 8
 
 while (True):
 
+    chromedriver_autoinstaller.install() 
+
     en = ''
 
     now = datetime.datetime.now()
@@ -29,29 +34,30 @@ while (True):
 
             en = '512247'
 
-        elif ((now.hour == 1 and now.minute == r) or (now.hour == 11 and now.minute == r)):
+        #elif ((now.hour == 1 and now.minute == r) or (now.hour == 11 and now.minute == r)):
 
-            en = '515286'
+            #en = '515286'
 
 
         if en:
 
             try:
+                
                 wd = webdriver.Chrome()
                 wd.get("https://www.fabrinet.co.th/custappl/covid/")
-                wd.find_element_by_xpath('//input[@type="text"]').send_keys(en)
+                wd.find_element(By.XPATH,'//input[@type="text"]').send_keys(en)
                 time.sleep(1)
-                wd.find_element_by_xpath('//input[@type="submit"]').click()
+                wd.find_element(By.XPATH,'//input[@type="submit"]').click()
                 time.sleep(5)
-                wd.find_elements_by_xpath('//span[@id="workat"]')[3].click()
+                wd.find_elements(By.XPATH,'//span[@id="workat"]')[3].click()
                 time.sleep(1)
-                wd.find_elements_by_xpath('//span[@class="checkmark"]')[14].click()
+                wd.find_elements(By.XPATH,'//span[@class="checkmark"]')[14].click()
                 time.sleep(1)
-                wd.find_element_by_xpath('//span[@id="checkbox13"]').click()
+                wd.find_element(By.XPATH,'//span[@id="checkbox13"]').click()
                 time.sleep(1)
-                wd.find_element_by_xpath('//span[@id="checkbox14"]').click()
+                wd.find_element(By.XPATH,'//span[@id="checkbox14"]').click()
                 time.sleep(1)
-                wd.find_element_by_xpath('//input[@type="submit"]').click()
+                wd.find_element(By.XPATH,'//input[@type="submit"]').click()
                 time.sleep(1)
                 wd.quit()
                 r = random.randint(1, 30)
@@ -59,6 +65,7 @@ while (True):
                 requests.post(url, headers=headers, data={'message': f" EN: {en} >>> Fill in Complete !!!  @"+str(now)}).text
 
             except:
+                traceback.print_exc()
                 print("Error")
                 requests.post(url, headers=headers, data={'message': f" EN: {en} >>> Fill in Failed !!!  @"+str(now)}).text
 
@@ -70,29 +77,29 @@ while (True):
 
             en = '512247'
 
-        elif ((now.hour == 1 and now.minute == r) or (now.hour == 11 and now.minute == r)):
+        #elif ((now.hour == 1 and now.minute == r) or (now.hour == 11 and now.minute == r)):
 
-            en = '515286'
+            #en = '515286'
 
 
         if en :
 
             try:
-                wd = webdriver.Chrome()
+                wd = webdriver.Chrome( "C://Users//Administrator//Desktop//chromedriver.exe")
                 wd.get("https://www.fabrinet.co.th/custappl/covid/")
-                wd.find_element_by_xpath('//input[@type="text"]').send_keys(en)
+                wd.find_element(By.XPATH,'//input[@type="text"]').send_keys(en)
                 time.sleep(1)
-                wd.find_element_by_xpath('//input[@type="submit"]').click()
+                wd.find_element(By.XPATH,'//input[@type="submit"]').click()
                 time.sleep(5)
-                wd.find_elements_by_xpath('//span[@id="workat"]')[0].click()
+                wd.find_elements(By.XPATH,'//span[@id="workat"]')[0].click()
                 time.sleep(1)
-                wd.find_elements_by_xpath('//span[@class="checkmark"]')[14].click()
+                wd.find_elements(By.XPATH,'//span[@class="checkmark"]')[14].click()
                 time.sleep(1)
-                wd.find_element_by_xpath('//span[@id="checkbox13"]').click()
+                wd.find_element(By.XPATH,'//span[@id="checkbox13"]').click()
                 time.sleep(1)
-                wd.find_element_by_xpath('//span[@id="checkbox14"]').click()
+                wd.find_element(By.XPATH,'//span[@id="checkbox14"]').click()
                 time.sleep(1)
-                wd.find_element_by_xpath('//input[@type="submit"]').click()
+                wd.find_element(By.XPATH,'//input[@type="submit"]').click()
                 time.sleep(1)
                 wd.quit()
                 r = random.randint(1, 30)
